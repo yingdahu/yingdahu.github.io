@@ -5,15 +5,6 @@ var logsLimit = 4;
 var b = document.getElementById('btnWS');
 var timer = document.getElementById("times");
 
-function change(e)
-{
-    b.textContent = "Stop Webcam";
-    b.title = "Click to stop webcam";
-    //timer.innerHTML = "adsf";
-    timer.innerHTML = e.timeStamp;
-    //b.innerHTML = e.timeStamp;
-}
-
 // Initialize the WebSocket
 function initWebSocket() {
     var ipName = window.location.hostname;
@@ -30,6 +21,7 @@ function initWebSocket() {
         //*** Change the title attribute of the button to display "Click to stop webcam" ***//
         b.title = "Click to stop webcam";
         //*** Enable the button" ***//
+        b.disabled = false;
         
     };
 
@@ -40,6 +32,7 @@ function initWebSocket() {
         //*** Change the title attribute of the button to display "Click to start webcam" ***//
          b.title = "Click to start webcam";
         //*** Enable the button" ***//
+        b.disabled = false;
         
     };
 
@@ -47,23 +40,31 @@ function initWebSocket() {
         //*** Display a new timestamp ***//
         timer.innerHTML = event.timeStamp;
         //*** Set the source of the image to the image on the WiFi chip ***//
-        
+        //NEED TO ADD THIS IN
     };
 	
 	ws.onerror = function () { // when an error occurs
 		ws.close();
 		log('Websocket error');
         //*** Change the text of the button to read "Start Webcam" ***//
-		
+		 b.textContent = "Start Webcam";
         //*** Change the title attribute of the button to display "Click to start webcam" ***//
-		
+		 b.title = "Click to start webcam";
         //*** Enable the button" ***//
-		
+		 b.disabled = false;
 	}
 }
 
 // Set up event listeners
 //*** When the button is clicked, disable it, and depending on whether a Websocket is open or not, either run "initWebSocket()" or "ws.close()" ***//
+function change(e)
+{
+    b.disabled = true;
+    if(ws)
+        initWebSocket();
+    else
+        ws.close();
+}
 
 
 // Other functions
