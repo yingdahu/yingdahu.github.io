@@ -3,12 +3,15 @@ var ws = undefined; // websocket instance
 var logs = [];
 var logsLimit = 4;
 var b = document.getElementById('btnWS');
+var timer = document.getElementById("times");
 
-
-function change()
+function change(e)
 {
-    b.value = "Stop Webcam";
+    b.textContent = "Stop Webcam";
     b.title = "Click to stop webcam";
+    //timer.innerHTML = "adsf";
+    timer.innerHTML = e.timeStamp;
+    //b.innerHTML = e.timeStamp;
 }
 
 // Initialize the WebSocket
@@ -23,9 +26,9 @@ function initWebSocket() {
     ws.onopen = function () { // when handshake is complete:
         log('WebSocket open to ZentriOS device ' + ipName);
         //*** Change the text of the button to read "Stop Webcam" ***//
-        b.value = "Stop Webcam";
+        b.textContent = "Stop Webcam";
         //*** Change the title attribute of the button to display "Click to stop webcam" ***//
-        b.title="Click to stop webcam";
+        b.title = "Click to stop webcam";
         //*** Enable the button" ***//
         
     };
@@ -33,16 +36,16 @@ function initWebSocket() {
     ws.onclose = function () { // when socket is closed:
         log('WebSocket connection to ' + ipName + ' has been closed!');
         //*** Change the text of the button to read "Start Webcam" ***//
-        
+         b.textContent = "Start Webcam";
         //*** Change the title attribute of the button to display "Click to start webcam" ***//
-        
+         b.title = "Click to start webcam";
         //*** Enable the button" ***//
         
     };
 
     ws.onmessage = function (event) { // when client receives a WebSocket message:
         //*** Display a new timestamp ***//
-        
+        timer.innerHTML = event.timeStamp;
         //*** Set the source of the image to the image on the WiFi chip ***//
         
     };
