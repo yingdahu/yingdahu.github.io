@@ -45,20 +45,15 @@ html {
 
 .member {
     margin: 0 auto;
-    width: 40%;
+    width: 50%;
     padding-top: 2em;
     padding-bottom:2em;
+    text-align: center;
 }
 .profile {
     border-radius: 50%; /*have to use image that is square*/
 }
 
-.name {
-    margin: 0 auto;
-    font-size: 1em;
-    text-align:center;
-    
-}
 hr { 
     display: block;
     margin-top: 2em;
@@ -75,10 +70,142 @@ hr {
     font-size: 1em;
     text-align:center;
     text-decoration: none;
+    position: relative;
 }
 
 .email::before{
     content: "Email: ";
     text-decoration: none;
     color: black;
+}
+/*
+
+.flip-container {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+	.flip-container:hover .flipper,  
+  .flip-container.hover .flipper {
+		-webkit-transform: rotateY(180deg);
+		-moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 24em;
+	height: 24em;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    overflow:hidden;
+}
+
+.flipper {
+	-webkit-transition: 0.6s;
+	-webkit-transform-style: preserve-3d;
+
+	-moz-transition: 0.6s;
+	-moz-transform-style: preserve-3d;
+  
+  -o-transition: 0.6s;
+	-o-transform-style: preserve-3d;
+
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+	backface-visibility: hidden;
+
+	position: absolute;
+	margin: 0 auto;
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.front {
+	z-index: 2;
+}
+
+.back {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+
+	background: #f8f8f8;
+}
+
+
+
+
+.back-title {
+	font-weight: bold;
+	color: #00304a;
+	position: absolute;
+	top: .4em;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.back p {
+	position: absolute;
+	bottom: 2em;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding: 0 20px;
+    font-family: arial, helvetica, sans-serif;
+    line-height: 2em;
+}
+*/
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+    border-radius: 50%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #547980;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.container {
+  position: relative;
+  width: 100%;
 }
