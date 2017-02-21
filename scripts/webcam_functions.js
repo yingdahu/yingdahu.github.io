@@ -4,6 +4,7 @@ var logs = [];
 var logsLimit = 4;
 var b = document.getElementById('btnWS');
 var timer = document.getElementById("times");
+var pic=document.getElementById('pic');
 
 // Initialize the WebSocket
 function initWebSocket() {
@@ -38,9 +39,9 @@ function initWebSocket() {
 
     ws.onmessage = function (event) { // when client receives a WebSocket message:
         //*** Display a new timestamp ***//
-        timer.innerHTML = event.timeStamp;
+        timer.innerHTML = event.timeStamp;  //unsure
         //*** Set the source of the image to the image on the WiFi chip ***//
-        //NEED TO ADD THIS IN
+        pic.src="images/img.jpg?rand="+Math.random();
     };
 	
 	ws.onerror = function () { // when an error occurs
