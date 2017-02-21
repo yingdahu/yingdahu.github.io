@@ -18,7 +18,7 @@ li a {
     text-align: center;
     padding: .8em .8em;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Montserrat', Helvetica, sans-serif;
     font-size: 0.9em;
 }
 
@@ -41,6 +41,8 @@ li:last-child {
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:'Montserrat', Helvetica, sans-serif;
 }
+
+
 
