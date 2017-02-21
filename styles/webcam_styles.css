@@ -64,7 +64,7 @@ button {
     color: white;
     
 }
-button:hover{
+button:hover:enabled {
     background-color: #45ada8;
     box-shadow: 0 .2em .4em 0 rgba(0,0,0,0.24), 0 .3em .6em 0 rgba(0,0,0,0.19);
 }
@@ -73,4 +73,8 @@ button:active {
     background-color: #45ada8; /*#3a98a1;*/
   /*box-shadow: 0 5px #666;*/
   transform: translateY(.1em);
+}
+
+button:disabled {
+    background-color: #8f9393;
 }
