@@ -41,7 +41,7 @@ function initWebSocket() {
         //*** Display a new timestamp ***//
         timer.innerHTML = event.timeStamp;  //unsure
         //*** Set the source of the image to the image on the WiFi chip ***//
-        pic.src="images/img.jpg?rand="+Math.random();
+        pic.src="img.jpg?rand="+Math.random();
     };
 	
 	ws.onerror = function () { // when an error occurs
